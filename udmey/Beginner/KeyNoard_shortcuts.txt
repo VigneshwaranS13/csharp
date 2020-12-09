@@ -1,0 +1,8 @@
+to compile/build application
+
+ctrl + shift + B
+
+to run application
+
+ctrl + f5
+
