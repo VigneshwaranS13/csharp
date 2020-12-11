@@ -26,6 +26,8 @@ float ->int
 int->short
 long->int
 
+- if var overflow occurs in byte then the result will be 1
+
 ## Non-compatible
 
 string -> int
