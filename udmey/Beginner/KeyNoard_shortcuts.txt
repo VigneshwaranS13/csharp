@@ -6,3 +6,7 @@ to run application
 
 ctrl + f5
 
+to move bewtween open doc in VS
+
+ctrl + tab
+
