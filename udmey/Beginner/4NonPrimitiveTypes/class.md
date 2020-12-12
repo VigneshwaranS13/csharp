@@ -145,4 +145,27 @@ static void Main(string[] args)
 ### Note :		
 All methods of console application is static,becuse we have only one console
 
+### Structure / Struct
 
+- another type similar to class
+- in terms of syntax its very similar to a class except hte stuct keyword
+
+```
+public struct RgbColor
+{
+ public int Red;
+ public int Green;
+ public int Blue;
+}
+``` 
+
+- we can use struct when we want to create a small lightweight object like above or when we dealing
+with point which has x and y
+- when we want to define thousands of objects like above structure more efficient
+ 
+ 
+
+
+
+ 
+- 
