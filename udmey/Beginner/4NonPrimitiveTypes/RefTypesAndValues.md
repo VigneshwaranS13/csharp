@@ -34,6 +34,3 @@ get removed from stack by runtime /CLR
 while even if the object get out of scope
 - it will get removed by the process called `Garbage collector` while runtime or by CLR
 
-
-## Demo
-
