@@ -53,4 +53,8 @@ i++
 
 
 
+## which loop should used
+
+- its better to use for loop when we know the iteration value
+- its better to use while loop when we dont know the iteration value
 
