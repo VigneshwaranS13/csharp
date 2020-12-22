@@ -31,6 +31,29 @@ namespace CSharpFundamentals
 
             Console.WriteLine(fullname.Replace("Arya" ,"arya"));
 
+            //String validation
+
+            if (String.IsNullOrEmpty(null))
+            {
+                Console.WriteLine("Invalid Entry");
+            }
+            if (String.IsNullOrEmpty(""))
+            {
+                Console.WriteLine("Invalid Entry");
+            }
+            if (String.IsNullOrEmpty(" ")) // eventhough its empty it will not be considered as empty so it will not go to next step
+            {
+                Console.WriteLine("Invalid Entry");
+            }
+            if (String.IsNullOrEmpty(" ".Trim())) // we can get rid of above issue by this steps
+            {
+                Console.WriteLine("Invalid Entry");
+            }
+            if(String.IsNullOrWhiteSpace(" ")) // microsoft introduced this new mehtod which will check whether the string is empty,null or it having whitespaces
+            {
+                Console.WriteLine("Invalid entry");
+            }
+
 
 
         }
