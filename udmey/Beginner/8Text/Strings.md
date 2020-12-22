@@ -4,7 +4,7 @@
 
 - ToLower()
 - ToUpper()
-- Trim() -- used to remove whitespace
+- Trim() -- used to remove whitespace at the end of the string
 
 2 Searching 
 
