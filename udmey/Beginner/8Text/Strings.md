@@ -39,6 +39,17 @@ string s = "1234";
 int i = int.Parse(i);		//for null values this will throw error while converting
 int j = Convert.ToInt32(s); //for null values it will convert it into 0
 
+## Converting Numbers to  Strings
+
+int i = 1234;
+
+string s = i.ToString() ;     //"1234"
+string t =i.ToString("C");    // "$1234.00"
+string t = i.ToString("C0");   //"$1234"
+
+we can find the details [here] (https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings)
+
+
 
 
 
