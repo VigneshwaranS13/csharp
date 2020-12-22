@@ -54,6 +54,17 @@ namespace CSharpFundamentals
                 Console.WriteLine("Invalid entry");
             }
 
+            //  string to number 
+
+            var age = "25";
+
+            var Age = Convert.ToByte(age);
+            Console.WriteLine("Age is " + Age);
+
+            // number to string
+
+            float price = 30.56f;
+            Console.WriteLine(price.ToString("C0"));// it will convert the string to currenct format and round it to one decimal i.e 31
 
 
         }
