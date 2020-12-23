@@ -14,3 +14,9 @@ methods
 4 Replace()
 5 Clear()
 
+## Quiz
+
+StringBuilder only provides methods for fast and efficient manipulation of 
+strings. It doesn't have any methods to search in strings. If we need to 
+search in a string that we're building using a StringBuilder, we need 
+to cover it to a string first: builder.ToString().IndexOf('M').
