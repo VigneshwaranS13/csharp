@@ -63,7 +63,11 @@ information
 
 
 
+## Quiz
 
+Security checking is done only during instantiation of FileInfo, and that's 
+why it's more efficient than File if you're executing multiple operations 
+on a given file. Because security checking will be done only once.
 
 
 
