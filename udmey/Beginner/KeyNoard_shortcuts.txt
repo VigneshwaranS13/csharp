@@ -2,9 +2,27 @@ to compile/build application
 
 ctrl + shift + B
 
-to run application
+to run application without debug
 
 ctrl + f5
+
+to run in the debug mode
+
+F5
+
+To set/remove a breakpoint  F9
+
+To run one step at a time(step over) F10
+
+To step into the corrent method F11
+
+To step out shift+F11
+
+To stop debuggin shift + F5
+
+Watch window:
+ we dont need to hover over our mouse against each variable 
+windows->windows->watch->watch1
 
 to move bewtween open doc in VS
 
