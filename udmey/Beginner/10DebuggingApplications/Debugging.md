@@ -32,4 +32,21 @@ application start up to where we are now
 - bottom is where we started
 - intermediate are the mehods in between from top to bottom
 
-	 
+
+##  autos and locals
+
+- watch window is useful but we have to type manually
+
+1 autos
+
+`debug -> windows -> Autos`
+
+- this window is like a watch but with automatic list of variables
+
+2 Locals
+
+`debug -> windows -> Locals`
+
+- this window is like a autos but will not list all variables
+- it will show the variables in the local scope
+		 
