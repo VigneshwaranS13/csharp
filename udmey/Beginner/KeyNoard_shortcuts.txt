@@ -18,7 +18,18 @@ To step into the corrent method F11
 
 To step out shift+F11
 
-To stop debuggin shift + F5
+To stop debugging shift + F5
+
+To continue till next exeution(it will hit the next breakpoint if it is present]
+
+F5
+
+We can list all breakpoint using 
+
+windows->breakpoint or ctrl+alt+B
+
+To restart the application:
+ctrl + shift + f5
 
 Watch window:
  we dont need to hover over our mouse against each variable 
