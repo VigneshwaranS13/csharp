@@ -23,25 +23,23 @@ namespace CSharpFundamentals
             string input = Console.ReadLine();
             Console.WriteLine("You entered the input as :" + input);
 
-            var withouthypen = input.Replace('-', ' ');
-            //Console.WriteLine(withouthypen);
-            var numbers = withouthypen.Split(' ');
+            var Strnumbers = input.Split('-');
             var Numbers = new List<int>();
 
-            foreach (var number in numbers)
+            foreach (var number in Strnumbers)
             {
                 int n = Convert.ToInt32(number);
                 Numbers.Add(n);
 
-            }   
+            }
             foreach (var Number in Numbers)
             {
                 Console.WriteLine(Number);
             }
             int count = 0;
-            for (var i = 0;i <4;i++)
+            for (var i = 0; i < 4; i++)
             {
-               if(Numbers[i+1] - Numbers[i] == 1 || (Numbers[i+1] -Numbers[i] == -1))
+                if (Numbers[i + 1] - Numbers[i] == 1 || (Numbers[i + 1] - Numbers[i] == -1))
                 {
                     count++;
                     if (count == 4)
@@ -57,25 +55,8 @@ namespace CSharpFundamentals
                     break;
                 }
             }
+
             
-            //var Numbers = new int[5];
-            //foreach (var number in numbers)
-            //{
-            //    Numbers.Append(Convert.ToInt32(number));
-
-            //}
-
-            //for (int i = 0; i <= 5; i++)
-            //{
-            //    if (Numbers[i] - Numbers[i - 1] == 1)
-            //    {
-            //        Console.WriteLine("Consecutive");
-            //    }
-            //    else
-            //    {
-            //        Console.WriteLine("Not Consecutive");
-            //    }
-            //}
 
 
         }
