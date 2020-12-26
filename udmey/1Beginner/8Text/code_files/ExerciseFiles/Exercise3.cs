@@ -27,19 +27,17 @@ namespace CSharpFundamentals
             }
             else
             {
-                Console.WriteLine("Need to check proceed futher");
+                //Console.WriteLine("Need to check proceed futher");
                 try
                 {
                     DateTime time1 = Convert.ToDateTime(input);
-                    Console.WriteLine(time1);
+                    Console.WriteLine("ok");
                 }
                 catch(Exception e)
                 {
                     Console.WriteLine("Invalid Time");
-                    //Console.WriteLine("Error was " + e);
-                    
-                }
-                
+                    //Console.WriteLine("Error was " + e);                    
+                }                
             }
             
 
