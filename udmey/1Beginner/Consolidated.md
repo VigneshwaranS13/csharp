@@ -217,7 +217,7 @@ a = 2, b = 2
 
 #### DataTypes
 
-![DataTypes](Images\DataTypes.PNG)
+![DataTypes](https://github.com/VigneshwaranS13/csharp/blob/master/udmey/1Beginner/Images/DataTypes.PNG)
 #### Implicit conversion :(no data loss)
 
 byte -> int
