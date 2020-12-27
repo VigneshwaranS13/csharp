@@ -579,6 +579,209 @@ var text2 = @"C:\windows\project\file1.txt";
 Console.WriteLine(text2);
 ```
 
+#### Enum
+
+- An enum is a special "class" that represents a group of constants (unchangeable/read-only variables).
+
+#### Syntax
+
+```
+public enum ShippingMethod 
+    { 
+        RegularMail =1,
+        Registered =2,
+        Express =3
+    }
+```
+- Enum is internally a integer
+- if we want to change to byte then we need to mention the same while creating  enum
+
+```
+public enum ShippingMethod :byte
+    { 
+        RegularMail =1,
+        Registered =2,
+        Express =3
+    }	
+```
+
+#### ToString
+
+- we can convert any object to string using ToString()
+- Console.Writeline will always convert any value to string,so we dont need to use ToSting method while working on console application
+- if we are not using Console.Writeline then we need to use ToString() to convert to string
+
+#### Parsing
+
+- Parsing in programming means getting a string and converting it into different data type
+- in case we want to convert string datatype to enum then we can use the below syntax
+
+```
+var methodName = "Registered";
+var enumconvertedvar = (ShippingMethod) Enum.Parse(typeof(ShippingMethod), methodName);
+Console.WriteLine(enumconvertedvar);//Registered
+Console.WriteLine(enumconvertedvar.GetType());//CSharpFundamentals.ShippingMethod
+```
+
+- type is the method in .net which containd metadata bout all the datatypes,We can user typeof operator whenever we want to see the data type of variable.
+
+#### Demo
+
+```
+public enum ShippingMethod 
+    { 
+        RegularMail =1,
+        Registered =2,
+        Express =3
+    }
+    public enum ShippingMethod2
+    {
+        RegularMail,// by default it will asssign value 0 for the first member and will automatically increment by 1
+        Registered,
+        Express
+    }
+    public enum ShippingMethod3 : byte
+    {
+        RegularMail,// by default it will asssign value 0 for the first member and will automatically increment by 1
+        Registered,
+        Express
+    }
+class Program
+{   
+	
+	static void Main(string[] args)
+	{
+
+		var method = ShippingMethod.Express;
+		Console.WriteLine((int)(method));// 3
+		Console.WriteLine(method);// Express
+
+		var methodID = 2;
+		Console.WriteLine((ShippingMethod)(methodID)); // Express
+
+		var method2 = ShippingMethod2.Express;
+		var method3 = ShippingMethod2.Registered;
+		var method4 = ShippingMethod2.RegularMail;
+		Console.WriteLine((int)method2);//2
+		Console.WriteLine((int)method3);//1
+		Console.WriteLine((int)method4);//0
+		Console.WriteLine(method2.GetType());//CSharpFundamentals.ShippingMethod2
+
+		var method5 = ShippingMethod3.Express;
+		var method6 = ShippingMethod3.Registered;
+		var method7 = ShippingMethod3.RegularMail;
+		Console.WriteLine((byte)method5);//2
+		Console.WriteLine((byte)method6);//1
+		Console.WriteLine((byte)method7);//0
+		Console.WriteLine(method5.GetType());//CSharpFundamentals.ShippingMethod3
+
+		Console.WriteLine(method2.ToString());//console.writeline will automatically convert the var to string
+
+		var methodName = "Registered";
+		var enumconvertedvar = (ShippingMethod) Enum.Parse(typeof(ShippingMethod), methodName);
+		Console.WriteLine(enumconvertedvar);//Registered
+		Console.WriteLine(enumconvertedvar.GetType());//CSharpFundamentals.ShippingMethod
+
+
+
+
+	}
+}
+```	
+
+#### RefTypes and values
+In csharp we have two main types from which we create new type
+
+1. Structures
+2. Classes
+
+#### Structures
+
+- primtive types
+- Custom strucures
+
+
+#### Classes
+
+- Arrays
+- Strings
+- Custom classes
+
+#### Value Tpes(Structures)
+
+- when we create varible in value type a part of memory called `stack` is allocated for that varible
+- Memory allocation done automatically
+- when this variable get out of scope it will immediately
+get removed from stack by runtime /CLR
+ 
+
+####  Reference Types (Classes)
+
+- Programmer need to allocate the memory with the new operator
+- Memory alloccation happen in different area of memory called `heap`
+- This memory is more sustainable
+- so the object created in heap memory will continue in memory for little while even if the object get out of scope
+- it will get removed by the process called `Garbage collector` while runtime or by CLR
+
+#### Demo
+
+```
+	// value type will create a copy of var with new memory location in stack
+	var a = 5;
+	var b = a;
+	b++;
+	Console.WriteLine(string.Format("a :{0} b : {1}",a,b));// a=5,b=6
+
+	/*reference type will copy of the refrence of the variable  which is present in heap to the stack
+	so if we assign to other var then it will create another reference in stack which will refernce to
+	the same heap memory location*/
+
+	var numbers = new int[3] { 1, 2, 3 };
+	var numbers2 = numbers;
+	numbers2[0] = 200;
+	Console.WriteLine(string.Format("numbers[0] is : {0} and  numbers2[0] :{1}", numbers[0], numbers2[0]));
+```
+
+```
+	public class Person2
+	{
+		public int Age;
+	}
+    class Program
+    {   
+        
+        static void Main(string[] args)
+        {
+            // since we have value type(int) in method Increment it will copy the value of var numbers in another location and will add 10
+            // This whole process will take place in stack
+            var number = 5;
+            Incrememt(number);
+            Console.WriteLine(number);
+
+            // Here we have refernce type (Person class object) so when we do MakeOld method it will copy the refernce to object p1 and it will add the age
+            // Here the process takes place in heap except creation of reference which will happen in Stack
+            Person2 Person2_obj = new Person2() { Age = 30 };
+            MakeOld(Person2_obj);
+            Console.WriteLine(Person2_obj.Age);//50
+        }
+        public static void Incrememt(int a)
+        {
+            a += 10;
+        }
+        public static void MakeOld(Person2 p1)
+        {
+            p1.Age += 20;
+        }
+    }
+```	
+---
+
+
+
+
+
+
+
 
 
 
