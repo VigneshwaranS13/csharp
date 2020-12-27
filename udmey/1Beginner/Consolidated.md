@@ -437,6 +437,156 @@ public struct RgbColor
 - we can use struct when we want to create a small lightweight object like above or when we dealing with point which has x and y
 - when we want to define thousands of objects like above structure more efficient
  
+ #### Array
+
+- Array is a data structure  which is used to store a collection of variables of the same type
+
+#### Declaring Array
+
+`int[] numbers = new int [3];`
+
+- arrays are fixed size in csharp
+- we need to specifyt the array while declaring and it can't be changed
+- when declaring array we need to allocate memory for that ,that is where `new` keyword comes into the picture
+- `In csharp we have class called array,so when we create an intance of that an array class,its an object so only we need to allocate memory for this`
+
+#### Accessing Array
+
+- we can access array elaments using an index
+- In csharp array is zero indexed,which means the first element of
+an array have the index of zero
+
+```
+int[] numbers = new int[3];
+
+numbers[0]= 1;
+numbers[1]= 2;
+numbers[2]= 3;
+```
+
+#### Object initialization syntax
+
+- during the declartion itself we can supply the values in curly braces 
+` int [] numbers = new int [3] {1,2,3}; `
+
+- when we decalring values we need to pass the value for all element
+`var numbers = new int[3] { 1, 2 };`
+- above will throw error
+
+#### demo
+
+- when we declare an array all the elaments value in the array are set to defalut datatype of that array(eg 0 for int datatype,False for boolean datatype,empty for string)
+
+```
+var numbers = new int[3] {1,2,3};
+// int[] numbers = new int[3];
+numbers[2] = 30;
+Console.WriteLine(numbers[0]);
+Console.WriteLine(numbers[1]);
+Console.WriteLine(numbers[2]);
+
+var bools = new bool[3];
+bools[1] = true;
+bools[0]= false;
+Console.WriteLine(bools[0]);
+Console.WriteLine(bools[1]);
+Console.WriteLine(bools[2]);//false
+
+var letters = new string[3];
+Console.WriteLine(letters[0]);
+Console.WriteLine(letters[1]);
+Console.WriteLine(letters[2]);
+```			
+
+#### String
+- sequence of characters
+- its is surrounded by double quotes whereas the characters are surrounded by singles quotes
+
+#### Creating Strings
+
+` string name = "Vignesh";`
+` sting name = firstName + " " + lastname;`
+
+- we can also add concatenation
+
+#### String Format
+
+` string name = string.Format("{0} {1}",firstName,lastname);`
+
+- `in csharp string keyword maps to the String class in Dot Net framework .In that class, Format is a static method,`so we can direclty access that method;
+- this mehod takes couple of parameters . format string i.e .{0] {1} - which we used to define a template for a string inside this template.Inside the template we have placeholders ,placeholders are indiacated by curly braces which used to store
+the values
+
+`var numbers = new int[3] {1,2,3};`
+`string list = string. Join(",",numbers);`
+
+- Join in a static method for a string class
+- It takes two arguments
+- the fist argument is a string which is a separator
+- the second argument is the array whose elements we would like to combine
+
+#### String Elements
+
+
+`string name = "Vignesh";`
+`char firstchar = name[0];`
+
+Now that we have a string we can access each of individual charcter using an index
+
+#### String Properties
+
+- Strings are `immutable`,which means once we create them we cannot change them
+- we can manipulate strings using methods but it will create a new string but the original string will not change 
+
+#### Escape characters :
+
+```
+\n  -> New Line
+\t  ->tab
+\\  ->Backslash
+\'  ->single Quotation Mark
+\'' -> double quotation mark
+
+```
+
+#### Verbatim Stings
+
+`string path = "c :\\projects\\project1\\folder1";`
+
+ - because of these special characters there are cases while creating
+ string become little bit messy
+ 
+ - in csharp we have `verbatim` string with this string we can get rid of  all this double backslashes
+ 
+ `string path = @"c :\projects\project1\folder1";`
+
+#### Demo
+```
+var firstname = "MS";
+var lastname = "dhoni";
+var fullname = string.Format("My favaourite crickter is {0} {0}", firstname, lastname);
+Console.WriteLine(fullname);
+
+var names = new string[3] { "MS", "Dhnoi", "Forever" };
+var combined = string.Join(",", names);
+Console.WriteLine(combined);
+
+var text1 = "Hi\nHow are you?\nHow was your day\nPFB path for file in my system\nC:\\windows\\project\\file1.txt";
+Console.WriteLine(text1);
+
+// Verbatim string
+var text2 = @"C:\windows\project\file1.txt";
+Console.WriteLine(text2);
+```
+
+
+
+
+
+
+
+
+
  
 
 
