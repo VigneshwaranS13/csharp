@@ -2,6 +2,7 @@
 1. [Introduction](#1introduction)
 2. [PrimitiveTypes And Expressions](#2primitivetypes-and-expressions)
 3. [Non-Primitive Types](#3non-primitive-types)
+4. [Control Flow](#4control-flow)
 
 
 
@@ -776,7 +777,334 @@ get removed from stack by runtime /CLR
 ```	
 ---
 
+## 4.Control Flow
 
+#### Conditional statements 
+
+1. if/else statements
+2. Switch/case statements
+
+- we also have conditional operator (which is shortcut for using if and else)
+` a? b : c`
+
+#### if/else
+
+syntax :
+
+```
+if (condition)
+	Statement;
+else if (anotherCondition)
+	anotherStatment;
+else
+    otherStatment;
+```
+
+- if we have more than one line of code, then we need to enclose them with curly braces
+- we can also have mutiple if else statements which is called `nested if/else`
+
+
+#### Switch/case
+
+- In switch/case , we have variable and compare the value of the variable with different method
+
+```
+switch(variable)
+{
+ case var.method1();
+        ...
+		break;
+ case var.method2();
+        ...
+		break;
+ default :
+        ...
+		break;
+ ```
+ 
+ #### Demo if-else
+
+ ```
+	int hour = 18;
+	// using if else
+	if (hour > 0 && hour < 12)
+	{
+		Console.WriteLine("Its morning");
+	}
+	else if (hour >= 12 && hour < 18)
+	{
+		Console.WriteLine("Its afternoon");
+	}
+	else
+	{
+		Console.WriteLine("It's evening");
+	}
+
+
+	bool IsGoldCustomer = true;
+
+	//float price;
+
+	//if (IsGoldCustomer)
+	//{
+	//    price = 10.58f;
+	//    Console.WriteLine(price);
+	//}
+	//else
+	//{
+	//    price = 8.58f;
+	//    Console.WriteLine(price);
+	//}
+
+	// using conditional operator
+	float price2 = (IsGoldCustomer) ? 10.58f : 8.58f;
+	Console.WriteLine(price2);
+```			
+ #### Demo switch
+
+ ```
+	var season = Season.Spring;
+	switch(season)
+	{
+		case Season.Autumn:
+			Console.WriteLine("Its autumn season");
+			break;
+		case Season.Winter:
+			Console.WriteLine("It's winter season");
+			break;
+		case Season.Summer:
+			Console.WriteLine("Its summer season");
+			break;
+		default:
+			Console.WriteLine("It's Spring :) ");
+			break;
+	}
+
+	// in case if we want the same op for two cases
+
+	var season2 = Season.Winter;
+	switch (season2)
+	{
+		case Season.Autumn:                    
+		case Season.Winter:
+		// this will act like a or operator
+			Console.WriteLine("It's either autmn or winter season,enjoy");
+			break;
+		case Season.Summer:
+			Console.WriteLine("Its summer season");
+			break;
+		default:
+			Console.WriteLine("It's Spring :) ");
+			break;
+	}
+
+ ```
+
+
+
+ #### Iteration Statements
+- used to repeately execute the sequence of statments.In c-sharp we have 4 iteration statments
+
+1. for loops
+2. foreach loops
+3. while loops
+4. do-while loops
+
+#### for loops
+```
+for (var i = 0; i < 10; i++)
+{
+
+}
+```
+
+i -> counter - > initialization clause
+i<10 -> conditonal clause
+i++ -> iteration clause(increment/decrement counter)
+
+#### Demo for loop
+
+```
+	// To print odd or even number within 10
+	for (var i = 1; i <= 10; i++)
+	{
+		if (i % 2  == 0)
+		{
+			Console.WriteLine(string.Format("Even number : {0}",i));
+		}
+		else
+		{
+			Console.WriteLine(string.Format("Odd number : {0}",i));
+		}
+	}
+
+	// To reverse the order
+	for (var i = 10; i >=1; i--)
+	{
+		if( i % 2 ==0 )
+		{
+			Console.WriteLine(string.Format("even number : {0}", i));
+		}
+
+		else
+		{
+			Console.WriteLine(string.Format("odd number : {0}", i));
+		}
+	}
+```
+
+#### foreach
+```
+foreach ( var number in numbers)
+{
+
+}
+```
+- foreach is used to iterate over elements of Enumerable object(list,array or simply collection)
+
+#### Demo foreach loop
+
+```
+	var name = "Vignesh";
+	// with for loop
+	for (var i = 0; i < name.Length; i++ )
+	{
+		Console.WriteLine(name[i]);
+	}
+	// with foreach
+
+	foreach(var letter in name)
+	{
+		Console.WriteLine(letter);
+	}
+
+	// foreach for array
+
+	var numbers = new int[5] { 1, 2, 3, 4, 5 };
+	foreach (var number in numbers)
+	{
+		Console.WriteLine(number);
+	}
+```
+
+#### while
+```
+while (i <10)
+{
+...
+i++
+}
+```
+
+- loop will execute till the condition meet
+
+#### Demo while loop
+
+```
+	//for (var i =0; i <=10; i++)
+	// {
+	//     if ( i % 2 == 0)
+	//     {
+	//         Console.WriteLine(i);
+	//     }
+	// }
+	/* same code in while loop */
+	var i = 1;
+	while (i <= 10)
+	{
+		if (i % 2 == 0)
+		{
+			Console.WriteLine(i);
+		}
+		i++;
+	} 
+	
+	//while (true)
+	//{
+	//    Console.Write("Type your name ");
+	//    var input = Console.ReadLine();
+
+	//    if (string.IsNullOrWhiteSpace(input))
+	//    {
+	//        break;
+	//    }
+	//    else
+	//    {
+	//        Console.WriteLine(" @Echo " + input);
+	//    }
+	//} 
+	// same program in differnt format
+	while (true)
+	{
+		Console.Write("Type your name");
+		var input = Console.ReadLine();
+		if (!(string.IsNullOrWhiteSpace(input)))
+		{
+			Console.WriteLine("@Echo  " + input);
+			continue;
+		}
+		break;
+	}
+```
+
+#### do-while
+
+```
+do
+{
+...
+i++
+}while (i <10);
+```
+- it will executed atleast once
+
+
+- `Break` - jumps out of the loops
+- `continue` - jumps to the next iteration
+
+
+
+#### which loop should used
+
+- its better to use for loop when we know the iteration value
+- its better to use while loop when we dont know the iteration value
+
+
+ #### Demo Random string
+
+ ```
+	//var random = new Random();
+
+	//for (var i = 0; i <= 10; i++)
+	//    Console.Write((char)random.Next(97, 122));
+
+	//Console.WriteLine((int)'a'); // 97
+	//Console.WriteLine((int)'z'); // 122
+
+	//for (var i = 0; i <= 10; i++)
+	//    Console.Write((char)('a'+random.Next(0, 26)));
+	//    Console.WriteLine();
+	//    Console.Write(('a' + random.Next(0, 26)));// when we add a charcter to the number  the result it going to be a number
+	//Console.WriteLine();
+
+	var random = new Random();
+	var passwordLength = 10;
+	char[] buffer = new char[passwordLength];
+
+	for (var i=0;i < passwordLength; i++)
+		buffer[i] =(char)('a'+ random.Next(0,26));
+	var password = new string(buffer);
+	Console.WriteLine(password);
+ 
+ ```
+ ---
+
+ 
+ 
+ 
+ 
+ 
+ 
 
 
 
