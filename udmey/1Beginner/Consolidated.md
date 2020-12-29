@@ -3,6 +3,7 @@
 2. [PrimitiveTypes And Expressions](#2primitivetypes-and-expressions)
 3. [Non-Primitive Types](#3non-primitive-types)
 4. [Control Flow](#4control-flow)
+5. [Arrays And List](#5arrays-and-lists)
 
 
 
@@ -1099,7 +1100,205 @@ i++
  ```
  ---
 
- 
+## 5.Arrays And Lists
+
+ #### Array
+
+- Arrays represents a fixed number of variables of particular type
+
+
+In  c-sharp we have two types of arrays
+
+1. Single Dimension Array
+2. Multi Dimension Array
+
+#### Single Dimension Array
+
+- the one which we seen earlier
+- it have one datatype collection
+
+` var numbers = new int[5]`
+` var numbers = new int[5] { 1,2,3,4,5}`
+
+- In above eg,we have an single dimesion array of int type with the length of array as 5
+
+#### Multi Dimension Array
+
+- we have two types of multi-dimesion array
+
+1. Rectangular
+2. Jagged 
+
+#### Rectangular
+- each row has the exact same number of columns
+
+Syntax :
+
+```
+var matrix = new int[3,5] ; // 3-> rows , 5 -> columns
+var matrix = new int[3,5] 
+{
+    {1,2,3,4,5},
+    {6,7,8,9,10},
+    {11,12,13,14,15}
+};
+var element = matrix [0,0] ; // 1
+```
+
+3D Array :
+```
+var matrix = new int[3,5,4] ;
+```
+
+#### Jagged ( array of arrays)
+- number of columns in each row can be different
+
+Syntax  :
+
+```
+var matrix1 = new int[3] [] ; 
+
+matrix1[0] = new int[4]{3,6,9,12};
+matrix1[1] = new int[3];
+matrix1[2] = new int[3];
+
+matrix1[0][0];// 3
+
+```
+
+#### differnce
+- in jagged array we have 2 square brackets,in rectangular array we have 1 square brackets
+- In dotnet CLR is optimized for single dimenison arays
+- to model a matrix jagged array is faster than a rectangular array
+
+#### Demo
+
+```
+	var ary1 = new [] { 1, 2, 3, 4, 5 };
+
+	// Length
+
+	Console.WriteLine(" Length : " + ary1.Length);
+
+	/** ary1.Length --instance member which means its not static
+	Array.Clear -- this is static method in array class which can be directly accessible **/
+
+
+	// IndexOf
+
+	var position = Array.IndexOf(ary1, 3);
+	Console.WriteLine("index of number 3 is : " + position);
+
+	//Clear
+
+	Array.Clear(ary1, 0, 2);
+	Console.WriteLine("Effect of clear()");
+	foreach (var i in ary1)
+		Console.WriteLine(i);
+
+	//Copy
+
+	var another = new int[3];
+
+	Array.Copy(ary1, another, 3);
+	Console.WriteLine("Effect of copy");
+	foreach (var i in another)
+		Console.WriteLine(i);
+
+	// Sort
+
+	Array.Sort(ary1);
+	Console.WriteLine("Effect of sort()");
+	foreach (var i in ary1)
+		Console.WriteLine(i);
+	// Reverse
+
+	Array.Reverse(another);
+
+	Console.WriteLine("Effect of reverse()");
+	foreach (var i in another) 
+		Console.WriteLine(i);
+```					
+#### List
+
+- Arrays have fixed size,once we create them we cannot change the size
+- if we don't know the number of objects which we are going to use then we can't use arrays,That's where `List` comes into the picture
+- similar to array ,List is a data structure for storing number of objects of the same type
+
+- To create a list
+
+`var numbers = new List<int>();`
+
+#### Generic tips :
+- when we work on generic type we need to mention the generic type inside the angle bracket
+-  we can initialize list using object initialization method
+
+`var numbers = new List<int>() { 1,2,3,4};`
+
+#### Useful methods :
+
+- Add()
+- AddRange()
+- Remove()
+- RemoveAt()
+- IndexOf()
+- Contains()
+- Count()
+
+#### Demo
+
+```
+	//Lists
+	var numbers = new List<int> { 1, 2, 3, 4, 5 };
+	numbers.Add(6);
+	numbers.AddRange(new int[4] { 6, 7, 8, 9 });
+	foreach(var number in numbers)
+	{
+		Console.WriteLine(number);
+	}
+	Console.WriteLine();
+	numbers.Add(3);
+	Console.WriteLine("index of 3 is "+numbers.IndexOf(3));
+	Console.WriteLine("Last Index of 3 is " +numbers.LastIndexOf(3));
+	Console.WriteLine("count" + numbers.Count);
+	numbers.Remove(3);
+
+	foreach (var number in numbers)
+	{
+		Console.WriteLine(number);
+	}
+	Console.WriteLine("Removal of list objects ");
+	//Let's try to remove all the 3s from the app
+
+	//foreach (var number in numbers)
+	//{
+	//    if(number == 3)
+	//    {
+	//        numbers.Remove(number);
+	//    }
+	//}
+
+	// application will crash for above code 
+	//because in csharp  we cannot modify the collection inside foreach loop
+	/**The collection used in foreach is immutable. This is very much by design. ... The foreach statement is used to iterate through the collection to get the information that we want, but can not be used to add or remove items from the source collection to avoid unpredictable side effects
+	//same can be done via for loop**/
+	for (var i = 0; i <numbers.Count; i++)
+	{
+		if(numbers[i]==3)
+		{
+			numbers.Remove(numbers[i]);
+		}
+	}
+	foreach (var number in numbers)
+	{
+		Console.WriteLine(number);
+	}
+	Console.WriteLine("Before clearing count was : " + numbers.Count);
+	numbers.Clear();//will remove all elements from the list
+	Console.WriteLine("after clearing count was  : "+numbers.Count);
+```
+ ---
+
  
  
  
