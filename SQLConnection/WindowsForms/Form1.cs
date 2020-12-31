@@ -26,7 +26,24 @@ namespace WindowsFormsApp_SQLServer
             cnn = new SqlConnection(connetionString);
             cnn.Open();
             MessageBox.Show("Connection Open  !");
-            cnn.Close();
+
+            SqlCommand command;
+            SqlDataReader dataReader;
+            String sql, Output = "";
+
+            sql = "select Top(5) Name from SalesLT.Product order by Name ";
+            command = new SqlCommand(sql, cnn);
+            dataReader = command.ExecuteReader();
+            while(dataReader.Read())
+            {
+                // Output = Output + dataReader.GetValue(0) + " - " + dataReader.GetValue(1) + "\n";
+                Output = Output + dataReader.GetValue(0) +  "\n";
+            }
+            MessageBox.Show(Output);
+            dataReader.Close();
+            command.Dispose();
+            cnn.Close();            
+            MessageBox.Show("Connection closed  !");
         }
     }
 }
