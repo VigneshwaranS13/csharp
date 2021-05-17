@@ -38,7 +38,16 @@ methods used:
 - Convert
 - Parse
 
-to get the var type:
+convert is the class in the system namespace.common convert class methods are
+
+- ToByte()
+- ToInt16()
+- ToInt32()
+- ToInt64()
+
+Parse method takes a string and try to change it to the target type
+
+To get the var type:
 
 - variable_name.GetType()
 

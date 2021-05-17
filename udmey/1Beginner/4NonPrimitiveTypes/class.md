@@ -148,7 +148,7 @@ All methods of console application is static,becuse we have only one console
 ### Structure / Struct
 
 - another type similar to class
-- in terms of syntax its very similar to a class except hte stuct keyword
+- in terms of syntax its very similar to a class except the struct keyword
 
 ```
 public struct RgbColor

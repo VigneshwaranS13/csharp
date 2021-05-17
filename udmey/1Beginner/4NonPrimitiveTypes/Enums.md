@@ -42,7 +42,7 @@ Console.WriteLine(enumconvertedvar);//Registered
 Console.WriteLine(enumconvertedvar.GetType());//CSharpFundamentals.ShippingMethod
 ```
 
-- type is the method in .net which containd metadata bout all the datatypes,WE can user typeof operator whenever we see the type
+- type is the method in .net which containd metadata about all the datatypes,We can use typeof operator whenever we see the type
 
 
 
